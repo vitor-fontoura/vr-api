@@ -1,21 +1,22 @@
-# Lumen PHP Framework
+# VR API
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/lumen-framework/v/unstable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+This project I will use as my final paper for the university, along with a front-end project and a three.js project.
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+The project itself consists of a customizable virtual environment, using virtual reality, to emerge students in pre-elaborated exercises during classes. These exercises must be previously created by the teachers.
 
-## Official Documentation
+## Overview
 
-Documentation for the framework can be found on the [Lumen website](http://lumen.laravel.com/docs).
+This API must be able to authenticate users, allow them to create different environments, including scenarios, objects that may be in those scenarios, and actions that can be performed on those objects.
 
-## Security Vulnerabilities
+The API must be connected to an interface where teachers can customize environments
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+The API should also be linked to a three.js application that will be used by the students during class with the support of their teachers.
 
-## License
+## Objectives
+- Bringing new technologies into the basic education classrooms
+- Making the learning process more interesting for children
+- Provide free software that can be used by teachers in elementary schools
+- Allow disabled students to participate in this experiment
 
-The Lumen framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+## Used tecnologies
+This API project uses the Laravel Lumen framework.
