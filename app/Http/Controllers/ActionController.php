@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class ActionController extends Controller
 {
     public function __construct()
@@ -10,22 +12,40 @@ class ActionController extends Controller
     }
 
     public function list(){
-        echo "Lista todas as ações - Aceita filtros por query";
+        return response()->json([
+            'method' => __METHOD__,
+            'description' => "Lista todas as ações - Aceita filtros por query"
+        ]);
     }
 
-    public function new(){
-        echo "Cadastra uma nova ação";
+    public function new(Request $request){
+        return response()->json([
+            'method' => __METHOD__,
+            'description' => "Cadastra uma nova ação"
+        ]);
     }
 
     public function detail($actionId){
-        echo "Mostra os detalhes da ação $actionId. Permite a edição da mesma caso seja o criador";
+        return response()->json([
+            'method' => __METHOD__,
+            'description' => "Mostra os detalhes da ação $actionId. Permite a edição da mesma caso seja o criador",
+            'id' => $actionId
+        ]);
     }
 
-    public function update($actionId){
-        echo "Atualiza a ação $actionId";
+    public function update($actionId, Request $request){
+        return response()->json([
+            'method' => __METHOD__,
+            'description' => "Atualiza a ação $actionId",
+            'id' => $actionId
+        ]);
     }
 
     public function delete($actionId){
-        echo "Exclui a ação $actionId";
+        return response()->json([
+            'method' => __METHOD__,
+            'description' => "Exclui a ação $actionId",
+            'id' => $actionId
+        ]);
     }
 }

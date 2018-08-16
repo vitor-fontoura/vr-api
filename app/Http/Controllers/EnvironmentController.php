@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 class EnvironmentController extends Controller
 {
     public function __construct()
@@ -10,22 +11,40 @@ class EnvironmentController extends Controller
     }
 
     public function list(){
-        echo "Lista todos os ambientes. Aceita filtros por query";
+        return response()->json([
+            'method' => __METHOD__,
+            'description' => "Lista todos os ambientes. Aceita filtros por query"
+        ]);
     }
 
-    public function new(){
-        echo "Cadastra um novo ambiente";
+    public function new(Request $request){
+        return response()->json([
+            'method' => __METHOD__,
+            'description' => "Cadastra um novo ambiente"
+        ]);
     }
 
     public function detail($environmentId){
-        echo "Mostra os detalhes do ambiente $environmentId. Permite a edição do mesmo caso seja criador";
+        return response()->json([
+            'method' => __METHOD__,
+            'description' => "Mostra os detalhes do ambiente $environmentId. Permite a edição do mesmo caso seja criador",
+            'id' => $environmentId
+        ]);
     }
 
-    public function update($environmentId){
-        echo "Atualiza o ambiente $environmentId";
+    public function update($environmentId, Request $request){
+        return response()->json([
+            'method' => __METHOD__,
+            'description' => "Atualiza o ambiente $environmentId",
+            'id' => $environmentId
+        ]);
     }
 
     public function delete($environmentId){
-        echo "Exclui o ambiente $environmentId";
+        return response()->json([
+            'method' => __METHOD__,
+            'description' => "Exclui o ambiente $environmentId",
+            'id' => $environmentId
+        ]);
     }
 }
