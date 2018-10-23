@@ -15,117 +15,83 @@ $app->get('/', function () use ($app) {
     return $app->version();
 });
 
-/* User Endpoints */
-$app->group(['prefix' => 'user'], function () use ($app) {
-    $app->get('/', [
-        'as' => 'userList', 'uses' => 'UserController@list'
-    ]);
+/**
+ * Routes for resource material
+ */
+$app->get('material', 'MaterialsController@all');
+$app->get('material/{id}', 'MaterialsController@get');
+$app->post('material', 'MaterialsController@add');
+$app->put('material/{id}', 'MaterialsController@put');
+$app->delete('material/{id}', 'MaterialsController@remove');
 
-    $app->post('/', [
-        'as' => 'userNew', 'uses' => 'UserController@new'
-    ]);
+/**
+ * Routes for resource environment
+ */
+$app->get('environment', 'EnvironmentsController@all');
+$app->get('environment/{id}', 'EnvironmentsController@get');
+$app->post('environment', 'EnvironmentsController@add');
+$app->put('environment/{id}', 'EnvironmentsController@put');
+$app->delete('environment/{id}', 'EnvironmentsController@remove');
 
-    $app->get('/{userId}', [
-        'as' => 'userDetail', 'uses' => 'UserController@detail'
-    ]);
+/**
+ * Routes for resource instance
+ */
+$app->get('instance', 'InstancesController@all');
+$app->get('instance/{id}', 'InstancesController@get');
+$app->post('instance', 'InstancesController@add');
+$app->put('instance/{id}', 'InstancesController@put');
+$app->delete('instance/{id}', 'InstancesController@remove');
 
-    $app->put('/{userId}', [
-        'as' => 'userUpdate', 'uses' => 'UserController@update'
-    ]);
+/**
+ * Routes for resource material
+ */
+$app->get('material', 'MaterialsController@all');
+$app->get('material/{id}', 'MaterialsController@get');
+$app->post('material', 'MaterialsController@add');
+$app->put('material/{id}', 'MaterialsController@put');
+$app->delete('material/{id}', 'MaterialsController@remove');
 
-    $app->delete('/{userId}', [
-        'as' => 'userDelete', 'uses' => 'UserController@delete'
-    ]);
-});
+/**
+ * Routes for resource environment
+ */
+$app->get('environment', 'EnvironmentsController@all');
+$app->get('environment/{id}', 'EnvironmentsController@get');
+$app->post('environment', 'EnvironmentsController@add');
+$app->put('environment/{id}', 'EnvironmentsController@put');
+$app->delete('environment/{id}', 'EnvironmentsController@remove');
 
-/* Scene Endpoints */
-$app->group(['prefix' => 'scene'], function () use ($app) {
-    $app->get('/', [
-        'as' => 'sceneList', 'uses' => 'SceneController@list'
-    ]);
+/**
+ * Routes for resource instance
+ */
+$app->get('instance', 'InstancesController@all');
+$app->get('instance/{id}', 'InstancesController@get');
+$app->post('instance', 'InstancesController@add');
+$app->put('instance/{id}', 'InstancesController@put');
+$app->delete('instance/{id}', 'InstancesController@remove');
 
-    $app->post('/', [
-        'as' => 'sceneNew', 'uses' => 'SceneController@new'
-    ]);
+/**
+ * Routes for resource action
+ */
+$app->get('action', 'ActionsController@all');
+$app->get('action/{id}', 'ActionsController@get');
+$app->post('action', 'ActionsController@add');
+$app->put('action/{id}', 'ActionsController@put');
+$app->delete('action/{id}', 'ActionsController@remove');
 
-    $app->get('/{sceneId}', [
-        'as' => 'sceneDetail', 'uses' => 'SceneController@detail'
-    ]);
+/**
+ * Routes for resource scenario
+ */
+$app->get('scenario', 'ScenariosController@all');
+$app->get('scenario/{id}', 'ScenariosController@get');
+$app->post('scenario', 'ScenariosController@add');
+$app->put('scenario/{id}', 'ScenariosController@put');
+$app->delete('scenario/{id}', 'ScenariosController@remove');
 
-    $app->put('/{sceneId}', [
-        'as' => 'sceneUpdate', 'uses' => 'SceneController@update'
-    ]);
-
-    $app->delete('/{sceneId}', [
-        'as' => 'sceneDelete', 'uses' => 'SceneController@delete'
-    ]);
-});
-
-/* Material Endpoints */
-$app->group(['prefix' => 'material'], function () use ($app) {
-    $app->get('/', [
-        'as' => 'materialList', 'uses' => 'MaterialController@list'
-    ]);
-
-    $app->post('/', [
-        'as' => 'materialNew', 'uses' => 'MaterialController@new'
-    ]);
-
-    $app->get('/{materialId}', [
-        'as' => 'materialDetail', 'uses' => 'MaterialController@detail'
-    ]);
-
-    $app->put('/{materialId}', [
-        'as' => 'materialUpdate', 'uses' => 'MaterialController@update'
-    ]);
-
-    $app->delete('/{materialId}', [
-        'as' => 'materialDelete', 'uses' => 'MaterialController@delete'
-    ]);
-});
-
-/* Action Endpoints */
-$app->group(['prefix' => 'action'], function () use ($app) {
-    $app->get('/', [
-        'as' => 'actionList', 'uses' => 'ActionController@list'
-    ]);
-
-    $app->post('/', [
-        'as' => 'actionNew', 'uses' => 'ActionController@new'
-    ]);
-
-    $app->get('/{actionId}', [
-        'as' => 'actionDetail', 'uses' => 'ActionController@detail'
-    ]);
-
-    $app->put('/{actionId}', [
-        'as' => 'actionUpdate', 'uses' => 'ActionController@update'
-    ]);
-
-    $app->delete('/{actionId}', [
-        'as' => 'actionDelete', 'uses' => 'ActionController@delete'
-    ]);
-});
-
-/* Environment Endpoints */
-$app->group(['prefix' => 'environment'], function () use ($app) {
-    $app->get('/', [
-        'as' => 'environmentList', 'uses' => 'EnvironmentController@list'
-    ]);
-
-    $app->post('/', [
-        'as' => 'environmentNew', 'uses' => 'EnvironmentController@new'
-    ]);
-
-    $app->get('/{environmentId}', [
-        'as' => 'environmentDetail', 'uses' => 'EnvironmentController@detail'
-    ]);
-
-    $app->put('/{environmentId}', [
-        'as' => 'environmentUpdate', 'uses' => 'EnvironmentController@update'
-    ]);
-
-    $app->delete('/{environmentId}', [
-        'as' => 'environmentDelete', 'uses' => 'EnvironmentController@delete'
-    ]);
-});
+/**
+ * Routes for resource trigger
+ */
+$app->get('trigger', 'TriggersController@all');
+$app->get('trigger/{id}', 'TriggersController@get');
+$app->post('trigger', 'TriggersController@add');
+$app->put('trigger/{id}', 'TriggersController@put');
+$app->delete('trigger/{id}', 'TriggersController@remove');
